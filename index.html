@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GO Transit Ticket</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .ticket {
+      width: 380px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      background: #fff;
+    }
+
+    /* Header */
+    .header {
+      background: #2e255f;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .route {
+      margin-top: 6px;
+      font-size: 13px;
+    }
+    .circle-divider {
+      width: 14px;
+      height: 14px;
+      background: #fff;
+      border-radius: 50%;
+      margin: 10px auto 0;
+    }
+
+    /* Middle Section */
+    .middle {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      padding: 20px;
+      font-size: 14px;
+    }
+    .passenger {
+      text-align: center;
+      width: 35%;
+    }
+    .passenger b {
+      font-size: 28px;
+      display: block;
+    }
+
+    .divider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 30%;
+      position: relative;
+    }
+    .divider-line {
+      flex-grow: 1;
+      width: 2px;
+      background: #ccc;
+    }
+    .train-icon {
+      width: 28px;
+      height: 28px;
+      fill: #888;
+      background: #fff;
+      z-index: 2;
+    }
+
+    .multi-use {
+      text-align: center;
+      width: 35%;
+    }
+    .ticket-icon {
+      width: 34px;
+      height: 34px;
+      fill: #555;
+      display: block;
+      margin: 0 auto 5px;
+      transform: rotate(-15deg);
+    }
+
+    /* Ticket Number */
+    .ticket-num {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    .ticket-num b {
+      font-size: 15px;
+    }
+
+    /* Info + Barcode wrapper */
+    .info-wrapper {
+      padding: 0 15px;
+    }
+
+    .barcode {
+      position: relative;
+      margin: 10px auto;
+      width: 100%;  /* keep barcode same width as info area */
+      max-width: 330px;
+    }
+
+    .barcode-lines {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* keeps spacing equal */
+    }
+
+    .barcode-lines div {
+      background: #bbb;
+      height: 100%;
+    }
+
+    .active {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 2px 10px;
+      font-weight: bold;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Info Section */
+    .info {
+      font-size: 12px;
+      text-align: center;
+    }
+    .info-line {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+    .info b {
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #2e255f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    .big-timer {
+      font-size: 28px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="ticket">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-top">
+        <div>TRANSIT</div>
+        <div class="logo">GO</div>
+        <div>GO TRANSIT</div>
+      </div>
+      <div class="route">
+        Hamilton GO Centre to Union Station GO - Weekend Pass
+      </div>
+      <div class="circle-divider"></div>
+    </div>
+
+    <!-- Middle -->
+    <div class="middle">
+      <div class="passenger">
+        <b>X1</b>
+        Passenger(s)<br>
+        1x Weekend Pass
+      </div>
+
+      <!-- Divider with Train Icon -->
+      <div class="divider">
+        <div class="divider-line"></div>
+        <svg class="train-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2C8 2 6 4 6 8v7c0 2 2 4 4 4l-2 2v1h8v-1l-2-2c2 0 4-2 4-4V8c0-4-2-6-6-6zm0 2c3 0 4 .67 4 4H8c0-3.33 1-4 4-4zm0 12c-1.1 0-2-.9-2-2s.9-2 
+          2-2 2 .9 2 2-.9 2-2 2zm-4-4V10h8v2H8z"/>
+        </svg>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="multi-use">
+        <svg class="ticket-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M4 4l16 4v8l-16 4zM9 10h2v2H9z"/>
+        </svg>
+        Multi Use Pass
+      </div>
+    </div>
+
+    <!-- Ticket Number -->
+    <div class="ticket-num">
+      Ticket Number: <b>MZ63662063</b>
+    </div>
+
+    <!-- Info + Barcode wrapper -->
+    <div class="info-wrapper">
+      <div class="barcode">
+        <div class="barcode-lines"></div>
+        <span class="active">ACTIVE</span>
+      </div>
+
+      <div class="info">
+        <div class="info-line">
+          <div><b>CURRENT DATE & TIME:</b><br><span id="current-time"></span></div>
+          <div><b>TIME SINCE ACTIVATION:</b><br><span id="time-since">00:00:00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Please show proof of your ticket to the Customer Protective Officers when asked
+      <div class="big-timer" id="countdown">23:59:59</div>
+    </div>
+  </div>
+
+  <script>
+    // Generate barcode bars evenly spaced
+    const barcode = document.querySelector(".barcode-lines");
+    for (let i = 0; i < 40; i++) {  // cut down number of bars to keep balance
+      const bar = document.createElement("div");
+      bar.style.width = Math.floor(Math.random() * 5 + 2) + "px"; // 2–6px
+      barcode.appendChild(bar);
+    }
+
+    // Live current time
+    function updateTime() {
+      const now = new Date();
+      document.getElementById("current-time").textContent =
+        now.toLocaleString();
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    // Track activation time
+    const activationTime = new Date();
+    function updateElapsed() {
+      const now = new Date();
+      const diff = Math.floor((now - activationTime) / 1000);
+      const hrs = String(Math.floor(diff / 3600)).padStart(2, "0");
+      const mins = String(Math.floor((diff % 3600) / 60)).padStart(2, "0");
+      const secs = String(diff % 60).padStart(2, "0");
+      document.getElementById("time-since").textContent =
+        `${hrs}:${mins}:${secs}`;
+    }
+    setInterval(updateElapsed, 1000);
+    updateElapsed();
+
+    // Countdown 24h
+    let remaining = 24 * 60 * 60;
+    function updateCountdown() {
+      const hrs = String(Math.floor(remaining / 3600)).padStart(2, "0");
+      const mins = String(Math.floor((remaining % 3600) / 60)).padStart(2, "0");
+      const secs = String(remaining % 60).padStart(2, "0");
+      document.getElementById("countdown").textContent =
+        `${hrs}:${mins}:${secs}`;
+      if (remaining > 0) remaining--;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
